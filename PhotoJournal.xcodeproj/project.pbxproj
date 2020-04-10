@@ -14,7 +14,6 @@
 		C6B2872C2440F8EA00B57D59 /* PhotoJournal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C6B2872A2440F8EA00B57D59 /* PhotoJournal.xcdatamodeld */; };
 		C6B2872E2440F8EB00B57D59 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C6B2872D2440F8EB00B57D59 /* Assets.xcassets */; };
 		C6B287312440F8EB00B57D59 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C6B2872F2440F8EB00B57D59 /* LaunchScreen.storyboard */; };
-		C6B287392440FEE800B57D59 /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C6B287382440FEE800B57D59 /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,7 +26,6 @@
 		C6B2872D2440F8EB00B57D59 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C6B287302440F8EB00B57D59 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C6B287322440F8EB00B57D59 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		C6B287382440FEE800B57D59 /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +58,6 @@
 		C6B287202440F8EA00B57D59 /* PhotoJournal */ = {
 			isa = PBXGroup;
 			children = (
-				C6B287382440FEE800B57D59 /* Secrets.swift */,
 				C6B287212440F8EA00B57D59 /* AppDelegate.swift */,
 				C6B287232440F8EA00B57D59 /* SceneDelegate.swift */,
 				C6B287252440F8EA00B57D59 /* ViewController.swift */,
@@ -145,7 +142,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C6B287262440F8EA00B57D59 /* ViewController.swift in Sources */,
-				C6B287392440FEE800B57D59 /* Secrets.swift in Sources */,
 				C6B287222440F8EA00B57D59 /* AppDelegate.swift in Sources */,
 				C6B2872C2440F8EA00B57D59 /* PhotoJournal.xcdatamodeld in Sources */,
 				C6B287242440F8EA00B57D59 /* SceneDelegate.swift in Sources */,
