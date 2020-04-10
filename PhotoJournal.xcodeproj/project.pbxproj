@@ -60,7 +60,7 @@
 		C6B287202440F8EA00B57D59 /* PhotoJournal */ = {
 			isa = PBXGroup;
 			children = (
-				C6B2873A2440FEEC00B57D59 /* Secrets */,
+				C6B287382440FEE800B57D59 /* Secrets.swift */,
 				C6B287212440F8EA00B57D59 /* AppDelegate.swift */,
 				C6B287232440F8EA00B57D59 /* SceneDelegate.swift */,
 				C6B287252440F8EA00B57D59 /* ViewController.swift */,
@@ -71,14 +71,6 @@
 				C6B2872A2440F8EA00B57D59 /* PhotoJournal.xcdatamodeld */,
 			);
 			path = PhotoJournal;
-			sourceTree = "<group>";
-		};
-		C6B2873A2440FEEC00B57D59 /* Secrets */ = {
-			isa = PBXGroup;
-			children = (
-				C6B287382440FEE800B57D59 /* Secrets.swift */,
-			);
-			path = Secrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
