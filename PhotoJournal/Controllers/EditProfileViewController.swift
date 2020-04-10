@@ -10,10 +10,16 @@ import UIKit
 
 class EditProfileViewController: UIViewController {
 
+    @IBOutlet weak var nameTextfield: UITextField!
+    
+    @IBOutlet weak var datepicker: UIDatePicker!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
 
+    @IBAction func updateButtonPressed(_ sender: UIButton) {
+    }
 }

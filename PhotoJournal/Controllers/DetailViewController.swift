@@ -10,10 +10,18 @@ import UIKit
 
 class DetailViewController: UIViewController {
 
+    @IBOutlet weak var photoImage: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var tagsLabel: UILabel!
+    
+    @IBOutlet weak var favoriteButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
     }
     
-
+    @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+    }
+    
 }
