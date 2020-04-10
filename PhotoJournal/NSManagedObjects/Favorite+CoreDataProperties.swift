@@ -18,7 +18,6 @@ extension Favorite {
     }
 
     @NSManaged public var photoURL: String?
-    @NSManaged public var title: String?
     @NSManaged public var user: User?
 
 }

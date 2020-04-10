@@ -2,7 +2,6 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E266" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Favorite" representedClassName=".Favorite" syncable="YES">
         <attribute name="photoURL" optional="YES" attributeType="String"/>
-        <attribute name="title" optional="YES" attributeType="String"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="favorites" inverseEntity="User"/>
     </entity>
     <entity name="User" representedClassName=".User" syncable="YES">
@@ -11,7 +10,7 @@
         <relationship name="favorites" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Favorite" inverseName="user" inverseEntity="Favorite"/>
     </entity>
     <elements>
+        <element name="Favorite" positionX="-5245.234375" positionY="-3844.171875" width="128" height="73"/>
         <element name="User" positionX="-5454.20703125" positionY="-3846.22265625" width="128" height="88"/>
-        <element name="Favorite" positionX="-5245.234375" positionY="-3844.171875" width="128" height="88"/>
     </elements>
 </model>

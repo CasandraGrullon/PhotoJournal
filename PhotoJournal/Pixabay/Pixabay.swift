@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+struct Pixabay: Codable {
+    let hits: [Photo]
+}
+struct Photo: Codable {
+    let tags: String
+    let largeImageURL: String
+}
