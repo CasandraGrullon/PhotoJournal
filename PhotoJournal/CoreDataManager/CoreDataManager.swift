@@ -42,7 +42,7 @@ class CoreDataManager {
         return users
     }
     
-    public func addToFavorite(photoURL: String, title: String, user: User) -> Favorite {
+    public func addToFavorite(photoURL: String, user: User) -> Favorite {
         let favorite = Favorite(entity: Favorite.entity(), insertInto: context)
         favorite.photoURL = photoURL
         favorite.user = user

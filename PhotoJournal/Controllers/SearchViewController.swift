@@ -52,6 +52,7 @@ class SearchViewController: UIViewController {
             }
         }
     }
+
     
 }
 extension SearchViewController: UISearchBarDelegate {
@@ -65,7 +66,12 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let itemWidth: CGFloat = maxWidth
         return CGSize(width: itemWidth, height: itemWidth * 0.90)
     }
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photo = photos[indexPath.row]
+        let detailVC = DetailViewController()
+        detailVC.photo = photo
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 extension SearchViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
