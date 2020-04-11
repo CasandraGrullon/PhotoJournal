@@ -11,7 +11,14 @@ import UIKit
 class FavoritesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    private var user: User? {
+        didSet {
+            if let user = user {
+              favorites = CoreDataManager.shared.fetchFavorites(user: user)
+            }
+            
+        }
+    }
     private var favorites = [Favorite]() {
         didSet {
             tableView.reloadData()
@@ -21,7 +28,7 @@ class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
-        fetchFavorites()
+        fetchData()
     }
     
     private func configureTableView() {
@@ -29,11 +36,17 @@ class FavoritesViewController: UIViewController {
         tableView.dataSource = self
     }
     
-    private func fetchFavorites() {
-        favorites = CoreDataManager.shared.fetchFavorites()
+    private func fetchData() {
+        user = CoreDataManager.shared.fetchUsers().first
+//        if let user = user {
+//            favorites = CoreDataManager.shared.fetchFavorites(user: user)
+//        }
     }
 }
 extension FavoritesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 300
+    }
     
 }
 extension FavoritesViewController: UITableViewDataSource {

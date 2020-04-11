@@ -23,7 +23,11 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI(photo: photo)
+        if photo != nil {
+            updateUI(photo: photo)
+        } else {
+            updateUI(favorite: favorite)
+        }
         fetchUser()
     }
     private func fetchUser() {
@@ -39,6 +43,7 @@ class DetailViewController: UIViewController {
                 case .success(let image):
                     DispatchQueue.main.async {
                         self?.photoImage.image = image
+                        self?.tagsLabel.text = photo.tags
                     }
                 }
             }
@@ -58,16 +63,15 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
-        
         guard let photo = photo, let user = user else {return}
         
-        let fave = CoreDataManager.shared.addToFavorite(photoURL: photo.largeImageURL, user: user)
-        
         isFavorite.toggle()
+        var fave = Favorite()
         
         if isFavorite {
             favoriteButton.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
             favoriteButton.tintColor = .red
+            fave = CoreDataManager.shared.addToFavorite(photoURL: photo.largeImageURL, user: user)
         } else {
             favoriteButton.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
             favoriteButton.tintColor = .black

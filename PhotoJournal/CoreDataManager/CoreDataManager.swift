@@ -56,13 +56,16 @@ class CoreDataManager {
         return favorite
     }
     
-    public func fetchFavorites() -> [Favorite] {
-        do {
-            favorites = try context.fetch(Favorite.fetchRequest())
-        } catch {
-            print("unable to get favorites \(error.localizedDescription)")
-        }
-        return favorites
+    public func fetchFavorites(user: User) -> [Favorite] {
+        let faves = user.favorites?.allObjects as? [Favorite] ?? []
+
+//        do {
+//            favorites = try context.fetch(Favorite.fetchRequest())
+//        } catch {
+//            print("unable to get favorites \(error.localizedDescription)")
+//        }
+        //return favorites
+        return faves
     }
     
     @discardableResult
