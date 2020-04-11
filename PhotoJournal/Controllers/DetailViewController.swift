@@ -23,7 +23,11 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateUI()
+        updateUI(photo: photo)
+        fetchUser()
+    }
+    private func fetchUser() {
+        user = CoreDataManager.shared.fetchUsers().first
     }
     
     private func updateUI(photo: Photo? = nil, favorite: Favorite? = nil) {

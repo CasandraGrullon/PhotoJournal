@@ -67,7 +67,9 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let photo = photos[indexPath.row]
-        let detailVC = DetailViewController()
+        guard let detailVC = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController else {
+            return
+        }
         detailVC.photo = photo
         present(detailVC, animated: true)
     }
