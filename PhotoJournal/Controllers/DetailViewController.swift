@@ -9,10 +9,6 @@
 import UIKit
 import ImageKit
 
-protocol FavoriteDelegate: AnyObject {
-    func didFavorite(_ detailVC: DetailViewController, photo: Photo)
-}
-
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var photoImage: UIImageView!
@@ -22,9 +18,7 @@ class DetailViewController: UIViewController {
     public var favorite: Favorite?
     public var photo: Photo?
     private var user: User?
-    
-    weak var delegate: FavoriteDelegate?
-    
+        
     private var isFavorite = false
     
     override func viewDidLoad() {
@@ -33,7 +27,7 @@ class DetailViewController: UIViewController {
     }
     
     private func updateUI(photo: Photo? = nil, favorite: Favorite? = nil) {
-        if let photo = photo {
+        if let photo = photo{
             photoImage.getImage(with: photo.largeImageURL) { [weak self] (result) in
                 switch result {
                 case .failure:
@@ -44,10 +38,8 @@ class DetailViewController: UIViewController {
                     }
                 }
             }
-            let tags = photo.tags.components(separatedBy: ",")
-            tagsLabel.text = tags.joined(separator: " #")
-            
-        } else if let favorite = favorite {
+        }
+        else if let favorite = favorite{
             photoImage.getImage(with: favorite.photoURL ?? "") { [weak self] (result) in
                 switch result {
                 case .failure:
@@ -62,15 +54,20 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func favoriteButtonPressed(_ sender: UIButton) {
+        
         guard let photo = photo, let user = user else {return}
-        favorite = CoreDataManager.shared.addToFavorite(photoURL: photo.largeImageURL, user: user)
-        delegate?.didFavorite(self, photo: photo)
+        
+        let fave = CoreDataManager.shared.addToFavorite(photoURL: photo.largeImageURL, user: user)
+        
+        isFavorite.toggle()
+        
         if isFavorite {
             favoriteButton.setBackgroundImage(UIImage(systemName: "heart.fill"), for: .normal)
             favoriteButton.tintColor = .red
         } else {
             favoriteButton.setBackgroundImage(UIImage(systemName: "heart"), for: .normal)
             favoriteButton.tintColor = .black
+            CoreDataManager.shared.deleteFromFavorites(fave)
         }
     }
     

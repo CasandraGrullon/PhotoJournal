@@ -65,6 +65,7 @@ class CoreDataManager {
         return favorites
     }
     
+    @discardableResult
     public func deleteFromFavorites(_ favorite: Favorite) -> Bool {
         var wasDeleted = false
         context.delete(favorite)

@@ -7,10 +7,24 @@
 //
 
 import UIKit
+import ImageKit
 
 class FavoriteCell: UITableViewCell {
 
     @IBOutlet weak var favoriteImage: UIImageView!
-    @IBOutlet weak var titleLabel: UILabel!
+    
+    public func configureCell(favorite: Favorite) {
+        guard let image = favorite.photoURL else {return}
+        favoriteImage.getImage(with: image) { [weak self] (result) in
+            switch result {
+            case .failure:
+                self?.favoriteImage.backgroundColor = .gray
+            case .success(let image):
+                DispatchQueue.main.async {
+                    self?.favoriteImage.image = image
+                }
+            }
+        }
+    }
     
 }

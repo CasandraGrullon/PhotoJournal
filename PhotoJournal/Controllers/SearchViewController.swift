@@ -52,7 +52,6 @@ class SearchViewController: UIViewController {
             }
         }
     }
-
     
 }
 extension SearchViewController: UISearchBarDelegate {
@@ -70,7 +69,7 @@ extension SearchViewController: UICollectionViewDelegateFlowLayout {
         let photo = photos[indexPath.row]
         let detailVC = DetailViewController()
         detailVC.photo = photo
-        navigationController?.pushViewController(detailVC, animated: true)
+        present(detailVC, animated: true)
     }
 }
 extension SearchViewController: UICollectionViewDataSource {
