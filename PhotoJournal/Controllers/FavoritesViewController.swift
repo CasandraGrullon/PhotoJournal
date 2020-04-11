@@ -37,10 +37,7 @@ class FavoritesViewController: UIViewController {
     }
     
     private func fetchData() {
-        user = CoreDataManager.shared.fetchUsers().first
-//        if let user = user {
-//            favorites = CoreDataManager.shared.fetchFavorites(user: user)
-//        }
+        user = CoreDataManager.shared.fetchUsers().last
     }
 }
 extension FavoritesViewController: UITableViewDelegate {

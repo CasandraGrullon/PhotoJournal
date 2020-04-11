@@ -13,7 +13,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var birthdayLabel: UILabel!
     
-    public var currentUser: User? {
+    private var currentUser: User? {
         didSet{
             updateUI()
         }
@@ -27,10 +27,10 @@ class ProfileViewController: UIViewController {
     private func updateUI() {
         userNameLabel.text = currentUser?.name
         let birthday = currentUser?.dob?.convertDate(date: currentUser?.dob ?? Date())
-        birthdayLabel.text = birthday 
+        birthdayLabel.text = birthday
     }
     private func fetchUsers() {
-        currentUser = CoreDataManager.shared.fetchUsers().first
+        currentUser = CoreDataManager.shared.fetchUsers().last
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let editVC = segue.destination as? EditProfileViewController else {
@@ -44,9 +44,8 @@ extension ProfileViewController: CreateUserDelegate {
     func didCreateUser(_ editVC: EditProfileViewController, user: User) {
         currentUser = user
     }
-    
-    
 }
+
 extension Date {
     func convertDate(date: Date) -> String {
         let dateFormatter = DateFormatter()

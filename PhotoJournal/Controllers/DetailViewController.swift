@@ -31,7 +31,7 @@ class DetailViewController: UIViewController {
         fetchUser()
     }
     private func fetchUser() {
-        user = CoreDataManager.shared.fetchUsers().first
+        user = CoreDataManager.shared.fetchUsers().last
     }
     
     private func updateUI(photo: Photo? = nil, favorite: Favorite? = nil) {

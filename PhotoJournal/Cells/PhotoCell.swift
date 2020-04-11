@@ -27,8 +27,8 @@ class PhotoCell: UICollectionViewCell {
     }
     
     public func configureCell(favorite: Favorite) {
-        guard let photoURL = favorite.photoURL else { return }
-        photoImage.getImage(with: photoURL) { [weak self] (result) in
+       // guard let image = favorite.photoURL else {return}
+        photoImage.getImage(with: favorite.photoURL ?? "") { [weak self] (result) in
             switch result {
             case .failure:
                 self?.photoImage.backgroundColor = .gray
