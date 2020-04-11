@@ -26,7 +26,8 @@ class ProfileViewController: UIViewController {
     
     private func updateUI() {
         userNameLabel.text = currentUser?.name
-        birthdayLabel.text = currentUser?.dob?.description
+        let birthday = currentUser?.dob?.convertDate(date: currentUser?.dob ?? Date())
+        birthdayLabel.text = birthday 
     }
     private func fetchUsers() {
         currentUser = CoreDataManager.shared.fetchUsers().first
@@ -45,4 +46,13 @@ extension ProfileViewController: CreateUserDelegate {
     }
     
     
+}
+extension Date {
+    func convertDate(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.dateFormat = "MMMM dd, yyyy"
+        dateFormatter.timeZone = .current
+        return dateFormatter.string(from: date)
+    }
 }
